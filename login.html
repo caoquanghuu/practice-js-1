@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <h1 class="title">Login<br />Welcome back!</h1>
+    <link rel="stylesheet" href="./css/index.css" />
+    <link rel="json" href="./server/db.json">
+    <script src="./js/index.js"></script>
+  </head>
+  <body class="flex">
+    <form class="flex">
+      <input
+        type="text"
+        id="userID"
+        name="userID"
+        placeholder="Enter Your Username/Email"
+      />
+      <input
+        type="text"
+        id="userPSW"
+        name="userPSW"
+        placeholder="Enter Your Password"
+      />
+      <img id="showPSW" src="./image/eye_password.png" alt="showPSW" />
+    </form>
+    <a class="link text" href="#">Forgot Password?</a>
+    <button id="login-button" onclick="login()">Login</button>
+    <div class="singup text">
+      Don't have an account? <a class="link" href="#">Signup</a>
+    </div>
+    <div class="flex or text">
+      <hr id="line" />
+      Or
+      <hr id="line" />
+    </div>
+    <button onclick="loginWFB()">
+      <img src="./image/facebook-logo.png" alt="facebook-logo" />Login with Facebook<div id="btn-space"></div>
+    </button>
+    <button id="gg-btn" onclick="loginWGG()">
+      <img src="./image/google-logo.png" alt="google-logo" />Login with Google<div id="btn-space"></div>
+    </button>
+  </body>
+  <footer>
+    <img src="./image/Me-logo.png" alt="me logo" />
+    <div id="founder">It's Me<br />Vinsensius Sugito Lein</div>
+  </footer>
+</html>
