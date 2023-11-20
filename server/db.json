@@ -4,18 +4,14 @@
   "profile": { "name": "typicode" },
   "user": [
     {
-      "user": {
-        "ID": 1,
-        "userID": "caoquanghuu",
-        "userPSW": "anhchoilapro"
-      }
+      "ID": 1,
+      "userID": "caoquanghuu",
+      "userPSW": "anhchoilapro"
     },
     {
-      "user": {
-        "ID": 2,
-        "userID": "luongkonghung",
-        "userPSW": "hungsida"
-      }
+      "ID": 2,
+      "userID": "luongkonghung",
+      "userPSW": "hungsida"
     }
   ]
 }

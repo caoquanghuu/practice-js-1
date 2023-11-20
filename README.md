@@ -33,6 +33,12 @@ Wed, 11.15.2023
     * ***With all forms***: Show error if value of user name/ email / phone field does not match manual rule.
     * Login success will cache in 5min.
     * When login / register. Add 3000ms delay when send a request to server, show loading in Login/Register button and disable all input when waiting  for server’s response.
+## SETUP TO RUN PROJECT
+1. **Install parcel**: 
+    * Install:
+        *  ```npm install --save-dev parcel```
+    * Run:
+        * ```npx parcel login.html```
 
 
 
