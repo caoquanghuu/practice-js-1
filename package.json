@@ -1,9 +1,16 @@
 {
   "devDependencies": {
     "buffer": "^6.0.3",
-    "parcel": "^2.10.3"
+    "parcel": "^2.10.3",
+    "install": "npm install --save-dev parcel",
+    "start": "npx parcel login.html"
   },
   "dependencies": {
-    "axios": "^1.6.2"
+    "axios": "^1.6.2",
+    "install": "npm install axios"
+  },
+  "json server": {
+    "dp json server": "server/dp.json",
+    "start": "json-server --watch server/db.json"
   }
 }
