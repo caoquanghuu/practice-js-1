@@ -1,0 +1,133 @@
+@import "https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic";
+html {
+  font-family: poppins;
+}
+
+h1 {
+  margin-top: 119px;
+}
+
+body {
+  width: 360px;
+  height: 900px;
+}
+
+form {
+  height: 130px;
+  position: relative;
+}
+
+.text {
+  letter-spacing: 0;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 21px;
+}
+
+a {
+  cursor: pointer;
+  color: #2f89fc;
+  text-decoration: none;
+}
+
+#showPSW {
+  cursor: pointer;
+  position: absolute;
+  top: 94px;
+  left: 275px;
+}
+
+.flex {
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+}
+
+.title {
+  letter-spacing: 0;
+  text-align: center;
+  width: 194px;
+  height: 72px;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 36px;
+}
+
+#userID, #userPSW {
+  letter-spacing: 0;
+  text-align: left;
+  border: 1px solid #0006;
+  border-radius: 10px;
+  width: 312px;
+  height: 48px;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+}
+
+button {
+  color: #ffffffe6;
+  cursor: pointer;
+  letter-spacing: 0;
+  background: #0e64d2;
+  border: none;
+  border-radius: 5px;
+  justify-content: space-between;
+  align-items: center;
+  width: 312px;
+  height: 48px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 21px;
+  display: flex;
+  top: 411px;
+  left: 24px;
+}
+
+#login-button {
+  display: block;
+}
+
+#gg-btn {
+  color: #0006;
+  background-color: #ffffff05;
+  border: 1px solid #0006;
+}
+
+.or {
+  font-weight: 400px;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 320px;
+}
+
+#line {
+  width: 140px;
+}
+
+#btn-space {
+  width: 26px;
+}
+
+footer {
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 310px;
+  margin-top: 80px;
+  display: flex;
+}
+
+#founder {
+  opacity: .5;
+  letter-spacing: 0;
+  text-align: left;
+  width: 138px;
+  height: 36px;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 18px;
+}
+
+/*# sourceMappingURL=login.e9a92ad8.css.map */
