@@ -33,14 +33,11 @@ window.login = function login() {
   });
 };
 
-
-
 window.showPSW = function showPSW() {
- var eyes = document.getElementById('userPSW');
- eyes.type = 'text';
-}
+  var eyes = document.getElementById("userPSW");
+  eyes.type = "text";
+};
 window.hidePSW = function hidePSW() {
-  var eyes = document.getElementById('userPSW');
-  eyes.type = 'password';
- }
-
+  var eyes = document.getElementById("userPSW");
+  eyes.type = "password";
+};

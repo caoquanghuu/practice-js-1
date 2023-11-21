@@ -3,7 +3,7 @@
   <head>
     <h1 class="title">Login<br />Welcome back!</h1>
     <link rel="stylesheet" href="./css/index.css" />
-    <link rel="json" href="./server/db.json">
+    <link rel="json" href="./server/db.json" />
     <script src="./js/index.js" type="module"></script>
   </head>
   <body class="flex">
@@ -22,7 +22,13 @@
         placeholder="Enter Your Password"
         value=""
       />
-      <img id="eye" onclick="showPSW()" onmouseleave="hidePSW()" src="./image/eye_password.png" alt="showPSW" />
+      <img
+        id="eye"
+        onclick="showPSW()"
+        onmouseleave="hidePSW()"
+        src="./image/eye_password.png"
+        alt="showPSW"
+      />
     </form>
     <a class="link text" href="#">Forgot Password?</a>
     <button id="login-button" onclick="login()">Login</button>
@@ -35,10 +41,14 @@
       <hr id="line" />
     </div>
     <button onclick="loginWFB()">
-      <img src="./image/facebook-logo.png" alt="facebook-logo" />Login with Facebook<div id="btn-space"></div>
+      <img src="./image/facebook-logo.png" alt="facebook-logo" />
+      Login with Facebook
+      <div id="btn-space"></div>
     </button>
     <button id="gg-btn" onclick="loginWGG()">
-      <img src="./image/google-logo.png" alt="google-logo" />Login with Google<div id="btn-space"></div>
+      <img src="./image/google-logo.png" alt="google-logo" />
+      Login with Google
+      <div id="btn-space"></div>
     </button>
   </body>
   <footer>
