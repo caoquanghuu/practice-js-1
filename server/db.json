@@ -12,6 +12,11 @@
       "ID": 2,
       "userID": "luongkonghung",
       "userPSW": "hungsida"
+    },
+    {
+      "ID": 3,
+      "userID": "nguyenchikhang",
+      "userPSW": "khangsida"
     }
   ]
 }

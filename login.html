@@ -16,13 +16,13 @@
         value=""
       />
       <input
-        type="text"
+        type="password"
         id="userPSW"
         name="userPSW"
         placeholder="Enter Your Password"
         value=""
       />
-      <img id="showPSW" src="./image/eye_password.png" alt="showPSW" />
+      <img id="eye" onclick="showPSW()" onmouseleave="hidePSW()" src="./image/eye_password.png" alt="showPSW" />
     </form>
     <a class="link text" href="#">Forgot Password?</a>
     <button id="login-button" onclick="login()">Login</button>

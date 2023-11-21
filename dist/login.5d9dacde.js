@@ -575,7 +575,7 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 }
 
 },{}],"1Z4Rq":[function(require,module,exports) {
-function login() {
+window.login = function login() {
     //get data from dp.jon/user
     const axios = require("bcc90620ff19db6e").default;
     axios.get("http://localhost:3000/user").then(function(response) {
@@ -595,35 +595,20 @@ function login() {
                 if (uID == account & uPW == password) {
                     alert("logging success");
                     break;
-                } else if (i = response.data.length - 1) alert("wrong user name / password");
+                }
+                if (i == response.data.length - 1) alert("wrong user name / password");
             }
         }
     });
-} // function appendData(data){
- //   console.log(data.data[0].userID);
- //   var a = data.data[0].userID;
- // }
- // function login(){
- //   var ac = document.getElementById("userID");
- //   var pw = document.getElementById("userPSW");
- //   var uID = ac.value;
- //   var uPW = pw.value;
- //   if (uID == "") {
- //     alert(
- //       "You wasn't insert Your ID. Please inset your ID. If you don't have an account, press Signup"
- //     );
- //   } else {
- //     if (uPW == "") {
- //       alert("Please type your password!!!");
- //     } else {
- //       if ((uID == account) & (uPW == password)) {
- //         alert("logging success");
- //       } else {
- //         alert("wrong user name / password");
- //       }
- //     }
- //   }
- //   }
+};
+window.showPSW = function showPSW() {
+    var eyes = document.getElementById("userPSW");
+    eyes.type = "text";
+};
+window.hidePSW = function hidePSW() {
+    var eyes = document.getElementById("userPSW");
+    eyes.type = "password";
+};
 
 },{"bcc90620ff19db6e":"jo6P5"}],"jo6P5":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");

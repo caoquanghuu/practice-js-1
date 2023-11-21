@@ -9,8 +9,8 @@
   <body class="flex">
     <form class="flex">
       <input type="text" id="userID" name="userID" placeholder="Enter Your Username/Email" value="">
-      <input type="text" id="userPSW" name="userPSW" placeholder="Enter Your Password" value="">
-      <img id="showPSW" src="/eye_password.e57df2ee.png" alt="showPSW">
+      <input type="password" id="userPSW" name="userPSW" placeholder="Enter Your Password" value="">
+      <img id="eye" onclick="showPSW()" onmouseleave="hidePSW()" src="/eye_password.e57df2ee.png" alt="showPSW">
     </form>
     <a class="link text" href="#">Forgot Password?</a>
     <button id="login-button" onclick="login()">Login</button>

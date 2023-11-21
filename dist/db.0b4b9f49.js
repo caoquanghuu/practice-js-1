@@ -575,7 +575,7 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 }
 
 },{}],"lGWyH":[function(require,module,exports) {
-module.exports = JSON.parse('{"posts":[{"id":1,"title":"json-server","author":"typicode"}],"comments":[{"id":1,"body":"some comment","postId":1}],"profile":{"name":"typicode"},"user":[{"ID":1,"userID":"caoquanghuu","userPSW":"anhchoilapro"},{"ID":2,"userID":"luongkonghung","userPSW":"hungsida"}]}');
+module.exports = JSON.parse('{"posts":[{"id":1,"title":"json-server","author":"typicode"}],"comments":[{"id":1,"body":"some comment","postId":1}],"profile":{"name":"typicode"},"user":[{"ID":1,"userID":"caoquanghuu","userPSW":"anhchoilapro"},{"ID":2,"userID":"luongkonghung","userPSW":"hungsida"},{"ID":3,"userID":"nguyenchikhang","userPSW":"khangsida"}]}');
 
 },{}]},["3MY0x","lGWyH"], "lGWyH", "parcelRequire94c2")
 
