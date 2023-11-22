@@ -5,12 +5,13 @@ html {
 }
 
 h1 {
-    margin-top: 119px;
+    margin-top: 60px;
 }
 
 body {
     width: 360px;
     height: 900px;
+    position: relative;
 }
 
 form {
@@ -32,12 +33,13 @@ a {
 
 #eye {
     position: absolute;
-    top: 94px;
-    left: 275px;
+    top: 275px;
+    left: 296px;
     cursor: pointer;
 }
 #eye-signup {
-    top: 443px;
+    position: absolute;
+    top: 458px;
     left: 296px;
 }
 
@@ -50,7 +52,6 @@ a {
 
 .title {
     width: 194px;
-    height: 72px;
     font-size: 24px;
     font-weight: 700;
     line-height: 36px;
@@ -58,8 +59,7 @@ a {
     text-align: center;
 }
 
-#userID,
-#userPSW {
+input {
     width: 312px;
     height: 48px;
     border-radius: 10px;

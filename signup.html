@@ -5,48 +5,47 @@
     <link rel="stylesheet" href="./css/index.css" />
     <link rel="json" href="./server/db.json" />
     <script src="./js/index.js" type="module"></script>
+    <script src="./js/signup.js" type="module"></script>
   </head>
   <body class="flex">
     <input
       type="text"
-      id="userID"
-      name="userID"
+      id="userName"
+      name="userName"
       placeholder="Enter Your Username"
       value=""
     />
     <input
       type="email"
-      id="userID"
-      name="userID"
+      id="userEmail"
+      name="userEmail"
       placeholder="Enter Your Email"
       value=""
     />
     <input
       type="number"
-      id="userID"
-      name="userID"
+      id="userPhoneN"
+      name="userPhoneN"
       placeholder="Enter Your Phone Number"
       value=""
     />
     <input
       type="password"
-      id="userPSW"
+      id="userPSW" 
       name="userPSW"
       placeholder="Enter Your Password"
       value=""
     />
     <img
-      id="eye eye-signup"
+      id="eye-signup"
       onclick="showPSW()"
       onmouseleave="hidePSW()"
       src="./image/eye_password.png"
       alt="showPSW"
     />
-
-    <a class="link text" href="#">Forgot Password?</a>
-    <button id="login-button" onclick="login()">Login</button>
+    <button id="login-button" onclick="Signup()">Signup</button>
     <div class="singup text">
-      Don't have an account? <a class="link" href="#">Signup</a>
+      Already have an account? <a class="link" href="#">Login</a>
     </div>
     <div class="flex or text">
       <hr id="line" />

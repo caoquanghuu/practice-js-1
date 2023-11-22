@@ -7,4 +7,23 @@ node_modules*
 .parcel-cache*
 
 #project ignores
- dist/
+ folder_to_ignore/dist
+dist/db.0b4b9f49.js
+dist/db.0b4b9f49.js.map
+dist/eye_password.e57df2ee.png
+dist/facebook-logo.e3d6e9d8.png
+dist/google-logo.6f280a1c.png
+dist/login.5d9dacde.js
+dist/login.5d9dacde.js.map
+dist/login.e9a92ad8.css
+dist/login.e9a92ad8.css.map
+dist/login.html
+dist/Me-logo.d468915d.png
+dist/signup.5d9dacde.js
+dist/signup.5d9dacde.js.map
+dist/signup.e9a92ad8.css
+dist/signup.e9a92ad8.css.map
+dist/signup.html
+dist/signup.be624ffb.js
+.gitignore
+dist/signup.be624ffb.js.map

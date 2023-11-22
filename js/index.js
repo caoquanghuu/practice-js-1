@@ -18,9 +18,10 @@ window.login = function login() {
         alert("Please type your password!!!");
       } else {
         for (var i = 0; i < response.data.length; i++) {
-          var account = response.data[i].userID;
+          var account = response.data[i].name;
+          var email = response.data[i].email;
           var password = response.data[i].userPSW;
-          if ((uID == account) & (uPW == password)) {
+          if ((uID == account) || (uID == email) & (uPW == password)) {
             alert("logging success");
             break;
           }

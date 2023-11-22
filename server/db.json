@@ -1,22 +1,56 @@
 {
-  "posts": [{ "id": 1, "title": "json-server", "author": "typicode" }],
-  "comments": [{ "id": 1, "body": "some comment", "postId": 1 }],
-  "profile": { "name": "typicode" },
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
   "user": [
     {
-      "ID": 1,
-      "userID": "caoquanghuu",
-      "userPSW": "anhchoilapro"
+      "id": 1,
+      "name": "caoquanghuu",
+      "email": "caoquanghuu@gmail.com",
+      "userPSW": "anhchoilapro",
+      "PhoneNumb": "123456789"
     },
     {
-      "ID": 2,
-      "userID": "luongkonghung",
-      "userPSW": "hungsida"
+      "id": 2,
+      "name": "luongkonghung",
+      "email": "luongkonghung@gmail.com",
+      "userPSW": "hungsida",
+      "PhoneNumb": "123456789"
     },
     {
-      "ID": 3,
-      "userID": "nguyenchikhang",
-      "userPSW": "khangsida"
+      "id": 3,
+      "name": "nguyenchikhang",
+      "email": "nguyenchikhang@gmail.com",
+      "userPSW": "khangsida",
+      "PhoneNumb": "123456789"
+    },
+    {
+      "name": "ngogiangmi",
+      "email": "ngogiangmi@gmail.com",
+      "userPSW": "ngogiangmi",
+      "PhoneNumb": "48945615",
+      "id": 4
+    },
+    {
+      "name": "caocao",
+      "email": "caocao@gmail.com",
+      "userPSW": "fdas",
+      "PhoneNumb": "15",
+      "id": 5
     }
   ]
 }
