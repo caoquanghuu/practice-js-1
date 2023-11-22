@@ -134,3 +134,12 @@ footer {
     letter-spacing: 0em;
     text-align: left;
 }
+
+#exist-error{
+    font-size: 11px;
+    color: red;
+    position: absolute;
+    top: 140px;
+    left: 30px;    
+
+}

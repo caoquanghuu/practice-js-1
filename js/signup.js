@@ -18,7 +18,8 @@ window.Signup = function Signup() {
       for (var i = 0; i < (length - 1); i++) {
         if (userName == data.data[i].name || userEmail == data.data[i].email) {
           checkUser = false;
-          alert("user already exist!!!");
+          var error = document.getElementById('exist-error');
+          error.innerHTML = "user / email already exist";
           break;
         }
       };
@@ -40,3 +41,7 @@ window.Signup = function Signup() {
     });
   }
 };
+
+window.clearError = function clearError() {
+  document.getElementById('exist-error').innerHTML = "";
+}

@@ -8,7 +8,9 @@
     <script src="./js/signup.js" type="module"></script>
   </head>
   <body class="flex">
+    <div id="exist-error"></div>
     <input
+      oninput="clearError()"
       type="text"
       id="userName"
       name="userName"
@@ -16,6 +18,7 @@
       value=""
     />
     <input
+      oninput="clearError()"
       type="email"
       id="userEmail"
       name="userEmail"
