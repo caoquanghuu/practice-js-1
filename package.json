@@ -1,5 +1,8 @@
 {
-  "source": "login.html",
+  "source": {
+    "login": "src/login.html",
+    "signup": "src/signup.html"
+  },
   "devDependencies": {
     "buffer": "^6.0.3",
     "parcel": "^2.10.3"
