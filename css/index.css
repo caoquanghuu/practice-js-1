@@ -15,7 +15,6 @@ body {
 
 form {
     height: 130px;
-    position: relative;
 }
 
 .text {
@@ -36,6 +35,10 @@ a {
     top: 94px;
     left: 275px;
     cursor: pointer;
+}
+#eye-signup {
+    top: 443px;
+    left: 296px;
 }
 
 .flex {
