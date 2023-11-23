@@ -45,3 +45,7 @@ window.Signup = function Signup() {
 window.clearError = function clearError() {
   document.getElementById('exist-error').innerHTML = "";
 }
+
+if (module.hot) {
+  module.hot.accept();
+}

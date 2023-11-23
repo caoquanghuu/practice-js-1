@@ -42,3 +42,7 @@ window.hidePSW = function hidePSW() {
   var eyes = document.getElementById("userPSW");
   eyes.type = "password";
 };
+
+if (module.hot) {
+  module.hot.accept();
+}
