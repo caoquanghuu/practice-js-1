@@ -1,7 +1,8 @@
 {
   "source": {
-    "login": "src/login.html",
-    "signup": "src/signup.html"
+    "login": "public/login.html",
+    "signup": "public/signup.html",
+    "calculator": "public/calculator.html"
   },
   "devDependencies": {
     "buffer": "^6.0.3",
