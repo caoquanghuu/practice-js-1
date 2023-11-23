@@ -63,6 +63,15 @@ window.dot = function dot() {
     }
   }
 };
+
+window.multi = function multi() {
+  var input = document.getElementById("result");
+  const valueIn1 = parseFloat(input.value);
+  
+}.then( window.ce()).then( function getInput2 () {
+
+})
+// function to clear input
 window.ce = function ce() {
   var ce = document.getElementById("result");
   ce.value = "";
