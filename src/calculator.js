@@ -22,12 +22,12 @@ window.dot = function dot() {
 //get calculation and return result
 window.calculation = function calculation(cal) {
   var input = document.getElementById("result");
-  const valueIn1 = input.value;
+  const valueIn1 = parseFloat(input.value);
   console.log("input 1", valueIn1);
   input.value = "";
   window.displayOutput = function displayOutput() {
     var input = document.getElementById("result");
-    let valueIn2 = input.value;
+    let valueIn2 = parseFloat(input.value);
     input.value = "";
     console.log("input 2", valueIn2);
     let result;
