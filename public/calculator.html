@@ -22,55 +22,55 @@
             <button class="orange-button" onclick="ce()">CE</button>
           </div>
           <div class="grey-bg">
-            <button class="grey-button" onclick="multi()">X</button>
+            <button class="grey-button" id="multi" onclick="calculation('*')">X</button>
           </div>
           <div class="grey-bg">
-            <button class="grey-button" id="sub">-</button>
+            <button class="grey-button" id="sub" onclick="calculation('-')">-</button>
           </div>
           <div class="grey-bg">
-            <button class="grey-button" id="sum">+</button>
+            <button class="grey-button" id="sum" onclick="calculation('+')">+</button>
           </div>
           <div class="grey-bg">
-            <button class="grey-button" id="div">/</button>
+            <button class="grey-button" id="div" onclick="calculation('/')">/</button>
           </div>
         </div>
         <div class="flex flex-calculator">
           <div class="white-bg">
-            <button class="white-button" onclick="one()">1</button>
+            <button class="white-button" onclick="getInput(1)">1</button>
           </div>
           <div class="white-bg">
-            <button class="white-button" id="two" onclick="two()">2</button>
+            <button class="white-button" id="two" onclick="getInput(2)">2</button>
           </div>
           <div class="white-bg">
-            <button class="white-button" id="three" onclick="three()">3</button>
+            <button class="white-button" id="three" onclick="getInput(3)">3</button>
           </div>
           <div class="white-bg">
-            <button class="white-button" id="four" onclick="four()">4</button>
+            <button class="white-button" id="four" onclick="getInput(4)">4</button>
           </div>
           <div class="white-bg">
-            <button class="white-button" id="five" onclick="five()">5</button>
+            <button class="white-button" id="five" onclick="getInput(5)">5</button>
           </div>
         </div>
         <div class="flex flex-calculator">
           <div class="white-bg">
-            <button class="white-button" id="six" onclick="six()">6</button>
+            <button class="white-button" id="six" onclick="getInput(6)">6</button>
           </div>
           <div class="white-bg">
-            <button class="white-button" id="seven" onclick="seven()">7</button>
+            <button class="white-button" id="seven" onclick="getInput(7)">7</button>
           </div>
           <div class="white-bg">
-            <button class="white-button" id="eight" onclick="eight()">8</button>
+            <button class="white-button" id="eight" onclick="getInput(8)">8</button>
           </div>
           <div class="white-bg">
-            <button class="white-button" id="nine" onclick="nine()">9</button>
+            <button class="white-button" id="nine" onclick="getInput(9)">9</button>
           </div>
           <div class="white-bg">
-            <button class="white-button" id="zero" onclick="zero()">0</button>
+            <button class="white-button" id="zero" onclick="getInput(0)">0</button>
           </div>
         </div>
         <div class="flex flex-calculator">
           <div class="orange-bg">
-            <button class="orange-button" id="equal">=</button>
+            <button class="orange-button" id="equal" onclick="displayOutput()">=</button>
           </div>
           <div class="dot-bg white-bg">
             <button class="white-button" onclick="dot()">.</button>
