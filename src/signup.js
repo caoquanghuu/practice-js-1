@@ -15,15 +15,15 @@ window.Signup = function Signup() {
       console.log(data);
       var length = data.data.length;
       var checkUser;
-      for (var i = 0; i < (length - 1); i++) {
+      for (var i = 0; i < length - 1; i++) {
         if (userName == data.data[i].name || userEmail == data.data[i].email) {
           checkUser = false;
-          var error = document.getElementById('exist-error');
+          var error = document.getElementById("exist-error");
           error.innerHTML = "user / email already exist";
           break;
         }
-      };
-      if ((checkUser != false)) {
+      }
+      if (checkUser != false) {
         axios
           .post("http://localhost:3000/user", {
             name: userName,
@@ -43,8 +43,8 @@ window.Signup = function Signup() {
 };
 
 window.clearError = function clearError() {
-  document.getElementById('exist-error').innerHTML = "";
-}
+  document.getElementById("exist-error").innerHTML = "";
+};
 
 if (module.hot) {
   module.hot.accept();

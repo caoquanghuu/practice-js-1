@@ -21,7 +21,7 @@ window.login = function login() {
           var account = response.data[i].name;
           var email = response.data[i].email;
           var password = response.data[i].userPSW;
-          if ((uID == account) || (uID == email) & (uPW == password)) {
+          if (uID == account || (uID == email) & (uPW == password)) {
             alert("logging success");
             break;
           }

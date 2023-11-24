@@ -25,6 +25,7 @@ window.calculation = function calculation(cal) {
   const valueIn1 = parseFloat(input.value);
   console.log("input 1", valueIn1);
   input.value = "";
+  // calculate when press equal button
   window.displayOutput = function displayOutput() {
     var input = document.getElementById("result");
     let valueIn2 = parseFloat(input.value);
