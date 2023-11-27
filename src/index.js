@@ -1,4 +1,8 @@
-window.login = function login() {
+//query element
+var lg = document.querySelector("#login-button");
+var show = document.querySelector("#eye");
+
+function login() {
   //get data from dp.jon/user
   const axios = require("axios").default;
   axios.get("http://localhost:3000/user").then(function (response) {
@@ -22,7 +26,7 @@ window.login = function login() {
           var email = response.data[i].email;
           var password = response.data[i].userPSW;
           if (uID == account || (uID == email) & (uPW == password)) {
-            alert("logging success");
+            window.location.replace("./calculator.html");
             break;
           }
           if (i == response.data.length - 1) {
@@ -32,16 +36,21 @@ window.login = function login() {
       }
     }
   });
-};
+}
 
-window.showPSW = function showPSW() {
+function showPSW() {
   var eyes = document.getElementById("userPSW");
   eyes.type = "text";
-};
-window.hidePSW = function hidePSW() {
+}
+
+function hidePSW() {
   var eyes = document.getElementById("userPSW");
   eyes.type = "password";
-};
+}
+//button event
+lg.addEventListener("click", login);
+show.addEventListener("click", showPSW);
+show.addEventListener("mouseleave", hidePSW);
 
 if (module.hot) {
   module.hot.accept();

@@ -1,5 +1,11 @@
 import axios from "axios";
-window.Signup = function Signup() {
+
+var sgp = document.querySelector("#signup-button");
+var uN = document.querySelector("#userName");
+var uE = document.querySelector("#userEmail");
+var showSNP = document.querySelector("#eye-signup");
+
+function Signup() {
   var name = document.getElementById("userName");
   var userName = name.value;
   var email = document.getElementById("userEmail");
@@ -40,11 +46,27 @@ window.Signup = function Signup() {
       }
     });
   }
-};
+}
 
-window.clearError = function clearError() {
+function clearError() {
   document.getElementById("exist-error").innerHTML = "";
-};
+}
+
+function showPSW() {
+  var eyes = document.getElementById("userPSW");
+  eyes.type = "text";
+}
+
+function hidePSW() {
+  var eyes = document.getElementById("userPSW");
+  eyes.type = "password";
+}
+
+sgp.addEventListener("click", Signup);
+uN.addEventListener("input", clearError);
+uE.addEventListener("input", clearError);
+showSNP.addEventListener("click", showPSW);
+showSNP.addEventListener("mouseleave", hidePSW);
 
 if (module.hot) {
   module.hot.accept();

@@ -90,9 +90,10 @@ button {
     letter-spacing: 0em;
 }
 
-#login-button {
+#login-button, #signup-button {
     display: block;
 }
+
 
 #gg-btn {
     color: rgba(0, 0, 0, 0.4);
