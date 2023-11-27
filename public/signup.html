@@ -4,47 +4,41 @@
     <h1 class="title">Signup</h1>
     <link rel="stylesheet" href="/public/css/index.css" />
     <link rel="json" href="/server/db.json" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
     <script src="/src/index.js" type="module"></script>
     <script src="/src/signup.js" type="module"></script>
   </head>
   <body class="flex">
     <div id="exist-error"></div>
     <input
-     
       type="text"
       id="userName"
-      name="userName"
       placeholder="Enter Your Username"
       value=""
     />
     <input
-    
       type="email"
       id="userEmail"
-      name="userEmail"
       placeholder="Enter Your Email"
       value=""
     />
     <input
       type="number"
       id="userPhoneN"
-      name="userPhoneN"
       placeholder="Enter Your Phone Number"
       value=""
     />
     <input
       type="password"
-      id="userPSW" 
-      name="userPSW"
+      id="userPSW"
       placeholder="Enter Your Password"
       value=""
     />
-    <img
-      id="eye-signup"
-      src="/public/image/eye_password.png"
-      alt="showPSW"
-    />
-    <button id="signup-button">Signup</button>
+    <img id="eye-signup" src="/public/image/eye_password.png" alt="showPSW" />
+    <button id="signup-button"><i class="fa"></i>Signup</button>
     <div class="singup text">
       Already have an account? <a class="link" href="./login.html">Login</a>
     </div>

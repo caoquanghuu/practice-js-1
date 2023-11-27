@@ -1,5 +1,5 @@
 //query element
-var lg = document.querySelector("#login-button");
+var lIn = document.querySelector("#login-button");
 var show = document.querySelector("#eye");
 var ac = document.getElementById("userID");
 var pw = document.getElementById("userPSW");
@@ -9,10 +9,10 @@ function login() {
   //get data from dp.jon/user
   const axios = require("axios").default;
   axios.get("http://localhost:3000/user").then(function (response) {
-    var iptU = document.querySelector("#userID");
-    var iptP = document.querySelector("#userPSW");
-    iptU.disabled = true;
-    iptP.disabled = true;
+    var ac = document.querySelector("#userID");
+    var pw = document.querySelector("#userPSW");
+    ac.disabled = true;
+    pw.disabled = true;
     setTimeout(() => {
       console.log(response);
       //set variable
@@ -41,8 +41,8 @@ function login() {
           }
         }
       }
-      iptU.disabled = false;
-      iptP.disabled = false;
+      ac.disabled = false;
+      pw.disabled = false;
     }, "3000");
   });
 }
@@ -55,9 +55,11 @@ function showPSW() {
 function ld() {
   loading.classList.add("fa-circle-o-notch");
   loading.classList.add("fa-spin");
+  lIn.disabled = true;
   setTimeout(() => {
     loading.classList.remove("fa-circle-o-notch");
     loading.classList.remove("fa-spin");
+    lIn.disabled = false;
   },3000);
 }
 
@@ -66,10 +68,10 @@ function hidePSW() {
   eyes.type = "password";
 }
 //button event
-lg.addEventListener("click", login);
+lIn.addEventListener("click", login);
 show.addEventListener("click", showPSW);
 show.addEventListener("mouseleave", hidePSW);
-lg.addEventListener("click", ld);
+lIn.addEventListener("click", ld);
 
 if (module.hot) {
   module.hot.accept();
