@@ -144,3 +144,9 @@ footer {
     left: 30px;    
 
 }
+
+.fa {
+    margin-left: -12px;
+    margin-right: 8px;
+    align-items: center;
+  }
