@@ -37,6 +37,7 @@ a {
     left: 296px;
     cursor: pointer;
 }
+
 #eye-signup {
     position: absolute;
     top: 458px;
@@ -90,7 +91,8 @@ button {
     letter-spacing: 0em;
 }
 
-#login-button, #signup-button {
+#login-button,
+#signup-button {
     display: block;
 }
 
@@ -135,13 +137,14 @@ footer {
     letter-spacing: 0em;
     text-align: left;
 }
+
 /* style for signup */
-#exist-error{
+#exist-error {
     font-size: 11px;
     color: red;
     position: absolute;
     top: 140px;
-    left: 30px;    
+    left: 30px;
 
 }
 
@@ -149,4 +152,4 @@ footer {
     margin-left: -12px;
     margin-right: 8px;
     align-items: center;
-  }
+}

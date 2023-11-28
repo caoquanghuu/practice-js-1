@@ -8,25 +8,14 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
-    <script src="/src/index.js" type="module"></script>
+    <script src="/src/login.js" type="module"></script>
   </head>
   <body class="flex">
     <form class="flex">
-      <input
-        type="text"
-        id="userID"
-        name="userID"
-        placeholder="Enter Your Username/Email"
-        value=""
-      />
-      <input
-        type="password"
-        id="userPSW"
-        name="userPSW"
-        placeholder="Enter Your Password"
-        value=""
-      />
-      <img id="eye" src="/public/image/eye_password.png" alt="showPSW" />
+      <div id="exist-error"></div>
+      <input type="text" id="input-name" placeholder="Enter Your Username/Email" value="" />
+      <input type="password" id="input-password" placeholder="Enter Your Password" value="" />
+      <img id="eye" src="/public/image/eye-password.png" alt="showPSW" />
     </form>
     <a class="link text" href="#">Forgot Password?</a>
     <button id="login-button"><i class="fa"></i>Login</button>
@@ -39,7 +28,7 @@
       Or
       <hr id="line" />
     </div>
-    <button onclick="loginWFB()">
+    <button onclick="javascript:void(0)">
       <img src="/public/image/facebook-logo.png" alt="facebook-logo" />
       Login with Facebook
       <div id="btn-space"></div>
@@ -51,7 +40,7 @@
     </button>
   </body>
   <footer>
-    <img src="/public/image/Me-logo.png" alt="me logo" />
+    <img src="/public/image/me-logo.png" alt="me logo" />
     <div id="founder">It's Me<br />Vinsensius Sugito Lein</div>
   </footer>
 </html>
