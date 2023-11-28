@@ -8,36 +8,16 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
-    <script src="/src/index.js" type="module"></script>
+    <script src="/src/login.js" type="module"></script>
     <script src="/src/signup.js" type="module"></script>
   </head>
   <body class="flex">
     <div id="exist-error"></div>
-    <input
-      type="text"
-      id="userName"
-      placeholder="Enter Your Username"
-      value=""
-    />
-    <input
-      type="email"
-      id="userEmail"
-      placeholder="Enter Your Email"
-      value=""
-    />
-    <input
-      type="number"
-      id="userPhoneN"
-      placeholder="Enter Your Phone Number"
-      value=""
-    />
-    <input
-      type="password"
-      id="userPSW"
-      placeholder="Enter Your Password"
-      value=""
-    />
-    <img id="eye-signup" src="/public/image/eye_password.png" alt="showPSW" />
+    <input type="text" id="input-name" placeholder="Enter Your Username" value="" />
+    <input type="email" id="input-email" placeholder="Enter Your Email" value="" />
+    <input type="number" id="input-phone" placeholder="Enter Your Phone Number" value="" />
+    <input type="password" id="input-password" placeholder="Enter Your Password" value="" />
+    <img id="eye-signup" src="/public/image/eye-password.png" alt="show password" />
     <button id="signup-button"><i class="fa"></i>Signup</button>
     <div class="singup text">
       Already have an account? <a class="link" href="./login.html">Login</a>
@@ -47,13 +27,13 @@
       Or
       <hr id="line" />
     </div>
-    <button onclick="loginWFB()">
-      <img src="/public/image/facebook-logo.png" alt="facebook-logo" />
+    <button>
+      <img src="/public/image/facebook-logo.png" alt="facebook logo" />
       Login with Facebook
       <div id="btn-space"></div>
     </button>
-    <button id="gg-btn" onclick="loginWGG()">
-      <img src="/public/image/google-logo.png" alt="google-logo" />
+    <button id="google-btn">
+      <img src="/public/image/google-logo.png" alt="google logo" />
       Login with Google
       <div id="btn-space"></div>
     </button>
