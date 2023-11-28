@@ -9,3 +9,4 @@ node_modules*
 #project ignores
  folder_to_ignore/dist
 dist/*
+package-lock.json
