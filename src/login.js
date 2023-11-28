@@ -13,6 +13,22 @@ function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
+// function lockWhenLoading() {
+//   inputUser.disabled = true;
+//   inputPassword.disabled = true;
+//   loadingIcon.classList.add('fa-circle-o-notch');
+//   loadingIcon.classList.add('fa-spin');
+//   loginBtn.disabled = true;
+// }
+
+function unlockWhenLoaded() {
+  inputUser.disabled = false;
+  inputPassword.disabled = false;
+  loadingIcon.classList.remove('fa-circle-o-notch');
+  loadingIcon.classList.remove('fa-spin');
+  loginBtn.disabled = false;
+}
+
 async function login() {
   inputUser.disabled = true;
   inputPassword.disabled = true;
@@ -43,11 +59,11 @@ async function login() {
       }
     }
   }
-  inputUser.disabled = false;
-  inputPassword.disabled = false;
-  loadingIcon.classList.remove('fa-circle-o-notch');
-  loadingIcon.classList.remove('fa-spin');
-  loginBtn.disabled = false;
+  // inputUser.disabled = false;
+  // inputPassword.disabled = false;
+  // loadingIcon.classList.remove('fa-circle-o-notch');
+  // loadingIcon.classList.remove('fa-spin');
+  // loginBtn.disabled = false;
 }
 
 function showPSW() {
@@ -66,6 +82,8 @@ showBtn.addEventListener('click', showPSW);
 showBtn.addEventListener('mouseleave', hidePSW);
 inputUser.addEventListener('input', clearError);
 inputPassword.addEventListener('input', clearError);
+loginBtn.addEventListener('load', unlockWhenLoaded);
+// loginBtn.addEventListener('loadeddata', unlockWhenLoaded);
 
 if (module.hot) {
   module.hot.accept();
