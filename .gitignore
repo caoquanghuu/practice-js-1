@@ -1,0 +1,11 @@
+.vscode/
+
+#ignore node modules
+node_modules*
+
+#ignore parcel cache
+.parcel-cache*
+
+#project ignores
+ folder_to_ignore/dist
+dist/*
