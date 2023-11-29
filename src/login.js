@@ -1,89 +1,87 @@
+const axios = require('axios').default;
+
 // query element //
-const loginBtn = document.getElementById('login-button');
-const showBtn = document.getElementById('eye');
+const btnLogin = document.getElementById('btn-login');
+const btnShowPassword = document.getElementById('btn-show-password2');
+const iconLoadingBtn = document.getElementById('icon-loading-btn');
 const inputUser = document.getElementById('input-name');
 const inputPassword = document.getElementById('input-password');
-const loadingIcon = document.querySelector('.fa');
-const showError = document.getElementById('exist-error');
-
-const axios = require('axios').default;
+const existError = document.getElementById('exist-error');
 
 function sleep(ms) {
   // eslint-disable-next-line no-promise-executor-return
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-// function lockWhenLoading() {
-//   inputUser.disabled = true;
-//   inputPassword.disabled = true;
-//   loadingIcon.classList.add('fa-circle-o-notch');
-//   loadingIcon.classList.add('fa-spin');
-//   loginBtn.disabled = true;
-// }
+function lockUI(lock) {
+  inputUser.disabled = lock;
+  inputPassword.disabled = lock;
+  if (lock) {
+    iconLoadingBtn.classList.add('fa-circle-o-notch');
+    iconLoadingBtn.classList.add('fa-spin');
+  } else {
+    iconLoadingBtn.classList.remove('fa-circle-o-notch');
+    iconLoadingBtn.classList.remove('fa-spin');
+  }
+}
 
-function unlockWhenLoaded() {
-  inputUser.disabled = false;
-  inputPassword.disabled = false;
-  loadingIcon.classList.remove('fa-circle-o-notch');
-  loadingIcon.classList.remove('fa-spin');
-  loginBtn.disabled = false;
+function togglePassword() {
+  const type = inputPassword.getAttribute('type') === 'password' ? 'text' : 'password';
+  inputPassword.setAttribute('type', type);
+}
+
+function clearError() {
+  existError.innerHTML = '';
+}
+
+function displayError(typeError) {
+  const emptyInput = 'Please insert your User name / Email and password';
+  const wrongUser = 'Wrong use name / password';
+  if (typeError === 'emptyInput') {
+    existError.innerHTML = emptyInput;
+  }
+  if (typeError === 'wrongUser') {
+    existError.innerHTML = wrongUser;
+  }
 }
 
 async function login() {
-  inputUser.disabled = true;
-  inputPassword.disabled = true;
-  loadingIcon.classList.add('fa-circle-o-notch');
-  loadingIcon.classList.add('fa-spin');
-  loginBtn.disabled = true;
-  // get data from dp.jon/user
-  const response = await axios.get('http://localhost:3000/user');
-  await sleep(3000);
-  // set variable
-  const uID = inputUser.value;
-  const uPW = inputPassword.value;
-  // start logic compare with data and user id,password
-  if (!uID) {
-    showError.innerHTML = 'Please insert your ID';
-  } else if (!uPW) {
-    showError.innerHTML = 'Please insert your password';
-  } else {
-    for (let i = 0; i < response.data.length; i += 1) {
-      const account = response.data[i].name;
-      const em = response.data[i].email;
-      const pass = response.data[i].userPSW;
-      if ((uID === account || uID === em) && uPW === pass) {
-        window.location.replace('./calculator.html');
-      }
-      if (i === response.data.length - 1 && uID !== account) {
-        showError.innerHTML = 'Wrong user name / password';
-      }
-    }
+  const userAccount = inputUser.value;
+  const userPassword = inputPassword.value;
+  let emptyInput;
+  let loginResult;
+
+  lockUI(true);
+  if (!userAccount || !userPassword) {
+    displayError('emptyInput');
+    emptyInput = true;
   }
-  // inputUser.disabled = false;
-  // inputPassword.disabled = false;
-  // loadingIcon.classList.remove('fa-circle-o-notch');
-  // loadingIcon.classList.remove('fa-spin');
-  // loginBtn.disabled = false;
+  if (!emptyInput) {
+    const response = await axios.get('http://localhost:3000/user');
+    await sleep(3000);
+    // eslint-disable-next-line array-callback-return
+    response.data.findIndex((data) => {
+      if (
+        // eslint-disable-next-line operator-linebreak
+        (userAccount === data.name || userAccount === data.email) &&
+        userPassword === data.password
+      ) {
+        window.location.replace('calculator.html');
+        loginResult = true;
+      }
+      if (!loginResult) {
+        displayError('wrongUser');
+      }
+    });
+  }
+  lockUI(false);
 }
 
-function showPSW() {
-  showBtn.type = 'text';
-}
-
-function hidePSW() {
-  showBtn.type = 'password';
-}
-function clearError() {
-  showError.innerHTML = '';
-}
 // button event
-loginBtn.addEventListener('click', login);
-showBtn.addEventListener('click', showPSW);
-showBtn.addEventListener('mouseleave', hidePSW);
+btnLogin.addEventListener('click', login);
+btnShowPassword.addEventListener('click', togglePassword);
 inputUser.addEventListener('input', clearError);
 inputPassword.addEventListener('input', clearError);
-loginBtn.addEventListener('load', unlockWhenLoaded);
-// loginBtn.addEventListener('loadeddata', unlockWhenLoaded);
 
 if (module.hot) {
   module.hot.accept();

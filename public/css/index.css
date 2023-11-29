@@ -31,18 +31,12 @@ a {
     color: rgba(47, 137, 252, 1);
 }
 
-#eye {
-    position: absolute;
-    top: 275px;
-    left: 296px;
-    cursor: pointer;
-}
 
-#eye-signup {
+/* #eye-signup {
     position: absolute;
     top: 458px;
     left: 296px;
-}
+} */
 
 .flex {
     display: flex;
@@ -91,13 +85,13 @@ button {
     letter-spacing: 0em;
 }
 
-#login-button,
-#signup-button {
+#btn-login,
+#btn-sign-up {
     display: block;
 }
 
 
-#google-btn {
+#btn-login-google {
     color: rgba(0, 0, 0, 0.4);
     background-color: rgba(255, 255, 255, 0.02);
     border: 1px solid rgba(0, 0, 0, 0.4)
@@ -110,11 +104,11 @@ button {
     font-weight: 400px;
 }
 
-#line {
+hr {
     width: 140px;
 }
 
-#btn-space {
+.btn-space {
     width: 26px;
 }
 
@@ -143,13 +137,29 @@ footer {
     font-size: 11px;
     color: red;
     position: absolute;
-    top: 140px;
-    left: 30px;
-
+    top: 120px;
+    left: 25px;
 }
 
 .fa {
     margin-left: -12px;
     margin-right: 8px;
     align-items: center;
+}
+
+#btn-show-password,
+#btn-show-password2 {
+    display: inherit;
+    background-color: inherit;
+    height: unset;
+    width: unset;
+    position: absolute;
+    top: 455px;
+    left: 290px;
+}
+
+#btn-show-password2 {
+    position: absolute;
+    top: 275px;
+    left: 290px;
 }
