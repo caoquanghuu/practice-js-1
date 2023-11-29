@@ -21,43 +21,50 @@
       "id": 1,
       "name": "caoquanghuu",
       "email": "caoquanghuu@gmail.com",
-      "userPSW": "anhchoilapro",
-      "PhoneNumb": "123456789"
+      "password": "anhchoilapro",
+      "phoneNumb": "123456789"
     },
     {
       "id": 2,
       "name": "luongkonghung",
       "email": "luongkonghung@gmail.com",
-      "userPSW": "hungsida",
-      "PhoneNumb": "123456789"
+      "password": "hungsida",
+      "phoneNumb": "123456789"
     },
     {
       "id": 3,
       "name": "nguyenchikhang",
       "email": "nguyenchikhang@gmail.com",
-      "userPSW": "khangsida",
-      "PhoneNumb": "123456789"
+      "password": "khangsida",
+      "phoneNumb": "123456789"
     },
     {
       "name": "ngogiangmi",
       "email": "ngogiangmi@gmail.com",
-      "userPSW": "ngogiangmi",
-      "PhoneNumb": "48945615",
+      "password": "ngogiangmi",
+      "phoneNumb": "48945615",
       "id": 4
     },
     {
       "name": "caocao",
       "email": "caocao@gmail.com",
-      "userPSW": "fdas",
-      "PhoneNumb": "15",
+      "password": "fdas",
+      "phoneNumb": "15",
       "id": 5
     },
     {
       "name": "caocaochauchau",
       "email": "caocaocao@gmail.com",
-      "userPSW": "fdasfdas",
-      "PhoneNumb": "156156",
+      "password": "fdasfdas",
+      "phoneNumb": "156156",
       "id": 6
+    },
+    {
+      "name": "caoquanghuu1",
+      "email": "caoquanghuu1@gmail.com",
+      "password": "dafef",
+      "phoneNumb": "16894",
+      "id": 7
     }
   ]
 }
