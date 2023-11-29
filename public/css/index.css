@@ -31,13 +31,6 @@ a {
     color: rgba(47, 137, 252, 1);
 }
 
-
-/* #eye-signup {
-    position: absolute;
-    top: 458px;
-    left: 296px;
-} */
-
 .flex {
     display: flex;
     flex-direction: column;
@@ -132,7 +125,6 @@ footer {
     text-align: left;
 }
 
-/* style for signup */
 #exist-error {
     font-size: 11px;
     color: red;
