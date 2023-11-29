@@ -8,7 +8,6 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
-    <script src="/src/login.js" type="module"></script>
     <script src="/src/signup.js" type="module"></script>
   </head>
   <body class="flex">
@@ -17,25 +16,27 @@
     <input type="email" id="input-email" placeholder="Enter Your Email" value="" />
     <input type="number" id="input-phone" placeholder="Enter Your Phone Number" value="" />
     <input type="password" id="input-password" placeholder="Enter Your Password" value="" />
-    <img id="eye-signup" src="/public/image/eye-password.png" alt="show password" />
-    <button id="signup-button"><i class="fa"></i>Signup</button>
+    <button id="btn-show-password">
+      <img id="eye-signup" src="/public/image/eye-password.png" alt="show password" />
+    </button>
+    <button id="btn-sign-up"><i class="fa" id="icon-loading-btn"></i>Signup</button>
     <div class="singup text">
       Already have an account? <a class="link" href="./login.html">Login</a>
     </div>
     <div class="flex or text">
-      <hr id="line" />
+      <hr />
       Or
-      <hr id="line" />
+      <hr />
     </div>
     <button>
       <img src="/public/image/facebook-logo.png" alt="facebook logo" />
       Login with Facebook
-      <div id="btn-space"></div>
+      <div class="btn-space"></div>
     </button>
-    <button id="google-btn">
+    <button id="btn-login-google">
       <img src="/public/image/google-logo.png" alt="google logo" />
       Login with Google
-      <div id="btn-space"></div>
+      <div class="btn-space"></div>
     </button>
   </body>
 </html>
