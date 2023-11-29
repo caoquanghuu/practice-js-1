@@ -20,11 +20,7 @@ function lockUI(lock) {
   inputEmail.disabled = lock;
   inputPhone.disabled = lock;
   inputPassword.disabled = lock;
-}
-
-// Start/Stop loading button
-function loadingBtn(start) {
-  if (start) {
+  if (lock) {
     iconLoadingBtn.classList.add('fa-circle-o-notch');
     iconLoadingBtn.classList.add('fa-spin');
   } else {
@@ -68,10 +64,6 @@ async function signUp() {
 
   // Lock UI
   lockUI(true);
-
-  // Start loading button.
-  loadingBtn(true);
-
   // Check all input field has been assigned or not
   if (!userName || !userEmail || !userPhone || !userPassword) {
     displayError('missInfo');
@@ -98,12 +90,8 @@ async function signUp() {
       });
     }
   }
-
   // Unlock UI
   lockUI(false);
-
-  // Stop loading button.
-  loadingBtn(false);
 }
 
 // Export function with events.
