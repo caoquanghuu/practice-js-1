@@ -7,7 +7,11 @@ const inputPhone = document.getElementById('input-phone');
 const inputPassword = document.getElementById('input-password');
 const iconLoadingBtn = document.getElementById('icon-loading-btn');
 const btnShowPassword = document.getElementById('btn-show-password');
-const existError = document.getElementById('exist-error');
+const existErrorText = document.getElementById('exist-error-text');
+const typeErrorDisplay = {
+  missInfo: 'Please insert all information!!!',
+  existInfo: 'user / email already exist!!!',
+};
 
 function sleep(ms) {
   // eslint-disable-next-line no-promise-executor-return
@@ -34,20 +38,18 @@ function togglePassword() {
   inputPassword.setAttribute('type', type);
 }
 
-// clear error.
-function clearError() {
-  existError.innerHTML = '';
-}
-
-function displayError(typeError) {
-  const missInfoError = 'Please insert all information!!!';
-  const existInfo = 'user / email already exist.';
-
-  if (typeError === 'missInfo') {
-    existError.innerHTML = missInfoError;
-  }
-  if (typeError === 'existInfo') {
-    existError.innerHTML = existInfo;
+function setError(typeError) {
+  switch (typeError) {
+    case 'missInfo':
+      existErrorText.innerHTML = typeErrorDisplay.missInfo;
+      break;
+    case 'existInfo':
+      existErrorText.innerHTML = typeErrorDisplay.existInfo;
+      break;
+    case 'clearError':
+      existErrorText.innerHTML = '';
+      break;
+    default:
   }
 }
 
@@ -66,7 +68,7 @@ async function signUp() {
   lockUI(true);
   // Check all input field has been assigned or not
   if (!userName || !userEmail || !userPhone || !userPassword) {
-    displayError('missInfo');
+    setError('missInfo');
     emptyInput = true;
   }
   // Check user information exist on data server exist or not
@@ -76,7 +78,7 @@ async function signUp() {
     // eslint-disable-next-line array-callback-return
     response.data.findIndex((data) => {
       if (userName === data.name || userEmail === data.email) {
-        displayError('existInfo');
+        setError('existInfo');
         userExist = true;
       }
     });
@@ -96,8 +98,12 @@ async function signUp() {
 
 // Export function with events.
 btnSignUP.addEventListener('click', signUp);
-inputName.addEventListener('input', clearError);
-inputEmail.addEventListener('input', clearError);
+inputName.addEventListener('click', () => {
+  setError('clearError');
+});
+inputEmail.addEventListener('click', () => {
+  setError('clearError');
+});
 btnShowPassword.addEventListener('click', togglePassword);
 
 if (module.hot) {

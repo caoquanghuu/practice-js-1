@@ -6,7 +6,11 @@ const btnShowPassword = document.getElementById('btn-show-password2');
 const iconLoadingBtn = document.getElementById('icon-loading-btn');
 const inputUser = document.getElementById('input-name');
 const inputPassword = document.getElementById('input-password');
-const existError = document.getElementById('exist-error');
+const existErrorText = document.getElementById('exist-error-text');
+const typeErrorDisplay = {
+  emptyInput: 'Please insert your User name / Email and password',
+  wrongUser: 'Wrong use name / password',
+};
 
 function sleep(ms) {
   // eslint-disable-next-line no-promise-executor-return
@@ -25,24 +29,24 @@ function lockUI(lock) {
   }
 }
 
+function setError(typeError) {
+  switch (typeError) {
+    case 'emptyInput':
+      existErrorText.innerHTML = typeErrorDisplay.emptyInput;
+      break;
+    case 'wrongUser':
+      existErrorText.innerHTML = typeErrorDisplay.wrongUser;
+      break;
+    case 'clearError':
+      existErrorText.innerHTML = '';
+      break;
+    default:
+  }
+}
+
 function togglePassword() {
   const type = inputPassword.getAttribute('type') === 'password' ? 'text' : 'password';
   inputPassword.setAttribute('type', type);
-}
-
-function clearError() {
-  existError.innerHTML = '';
-}
-
-function displayError(typeError) {
-  const emptyInput = 'Please insert your User name / Email and password';
-  const wrongUser = 'Wrong use name / password';
-  if (typeError === 'emptyInput') {
-    existError.innerHTML = emptyInput;
-  }
-  if (typeError === 'wrongUser') {
-    existError.innerHTML = wrongUser;
-  }
 }
 
 async function login() {
@@ -52,8 +56,9 @@ async function login() {
   let loginResult;
 
   lockUI(true);
+  lockUI(true);
   if (!userAccount || !userPassword) {
-    displayError('emptyInput');
+    setError('emptyInput');
     emptyInput = true;
   }
   if (!emptyInput) {
@@ -70,7 +75,7 @@ async function login() {
         loginResult = true;
       }
       if (!loginResult) {
-        displayError('wrongUser');
+        setError('wrongUser');
       }
     });
   }
@@ -80,8 +85,12 @@ async function login() {
 // button event
 btnLogin.addEventListener('click', login);
 btnShowPassword.addEventListener('click', togglePassword);
-inputUser.addEventListener('input', clearError);
-inputPassword.addEventListener('input', clearError);
+inputUser.addEventListener('input', () => {
+  setError('clearError');
+});
+inputPassword.addEventListener('input', () => {
+  setError('clearError');
+});
 
 if (module.hot) {
   module.hot.accept();
