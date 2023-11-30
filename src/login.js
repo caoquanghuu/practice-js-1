@@ -1,4 +1,5 @@
 const axios = require('axios').default;
+require('./ultis')();
 
 // query element //
 const btnLogin = document.getElementById('btn-login');
@@ -11,11 +12,6 @@ const typeErrorDisplay = {
   emptyInput: 'Please insert your User name / Email and password',
   wrongUser: 'Wrong use name / password',
 };
-
-function sleep(ms) {
-  // eslint-disable-next-line no-promise-executor-return
-  return new Promise((resolve) => setTimeout(resolve, ms));
-}
 
 function lockUI(lock) {
   inputUser.disabled = lock;
@@ -52,32 +48,30 @@ function togglePassword() {
 async function login() {
   const userAccount = inputUser.value;
   const userPassword = inputPassword.value;
-  let emptyInput;
-  let loginResult;
+  let emptyInput = false;
 
-  lockUI(true);
   lockUI(true);
   if (!userAccount || !userPassword) {
     setError('emptyInput');
     emptyInput = true;
   }
   if (!emptyInput) {
-    const response = await axios.get('http://localhost:3000/user');
-    await sleep(3000);
-    // eslint-disable-next-line array-callback-return
-    response.data.findIndex((data) => {
-      if (
-        // eslint-disable-next-line operator-linebreak
-        (userAccount === data.name || userAccount === data.email) &&
-        userPassword === data.password
-      ) {
-        window.location.replace('calculator.html');
-        loginResult = true;
-      }
-      if (!loginResult) {
-        setError('wrongUser');
-      }
+    const response = await axios.get('http://localhost:3000/user').catch((error) => {
+      console.log(error);
     });
+    await sleep(3000);
+    const dataName = response.data.findIndex((data) => data.name === userAccount);
+    const dataEmail = response.data.findIndex((data) => data.email === userAccount);
+    const dataPassword = response.data.findIndex((data) => data.password === userPassword);
+    if (
+      (dataName !== -1 || dataEmail !== -1) &&
+      dataPassword !== -1 &&
+      (dataName === dataPassword || dataEmail === dataPassword)
+    ) {
+      window.location.replace('calculator.html');
+    } else {
+      setError('wrongUser');
+    }
   }
   lockUI(false);
 }

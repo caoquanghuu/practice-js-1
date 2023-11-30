@@ -1,5 +1,5 @@
 {
-  "cSpell.words": ["Lein", "signup", "Sugito", "Vinsensius"],
+  "cSpell.words": ["Lein", "signup", "Sugito", "ultis", "Vinsensius"],
   "editor.defaultFormatter": "rvest.vs-code-prettier-eslint",
   "editor.formatOnPaste": false, // required
   "editor.formatOnType": false, // required
@@ -11,6 +11,9 @@
     "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
   },
   "[html]": {
+    "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
+  },
+  "[json]": {
     "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
   } // set as "true" to run 'prettier' last not first
 }

@@ -1,4 +1,5 @@
 const axios = require('axios').default;
+require('./ultis')();
 
 const btnSignUP = document.getElementById('btn-sign-up');
 const inputName = document.getElementById('input-name');
@@ -12,11 +13,6 @@ const typeErrorDisplay = {
   missInfo: 'Please insert all information!!!',
   existInfo: 'user / email already exist!!!',
 };
-
-function sleep(ms) {
-  // eslint-disable-next-line no-promise-executor-return
-  return new Promise((resolve) => setTimeout(resolve, ms));
-}
 
 // Disable/Enable input field.
 function lockUI(lock) {
@@ -61,8 +57,7 @@ async function signUp() {
   const userPhone = inputPhone.value;
   const userPassword = inputPassword.value;
   // variables for check as boolean
-  let emptyInput;
-  let userExist;
+  let emptyInput = false;
 
   // Lock UI
   lockUI(true);
@@ -73,23 +68,25 @@ async function signUp() {
   }
   // Check user information exist on data server exist or not
   if (!emptyInput) {
-    const response = await axios.get('http://localhost:3000/user');
-    await sleep(3000);
-    // eslint-disable-next-line array-callback-return
-    response.data.findIndex((data) => {
-      if (userName === data.name || userEmail === data.email) {
-        setError('existInfo');
-        userExist = true;
-      }
+    const response = await axios.get('http://localhost:3000/user').catch((error) => {
+      console.log(error);
     });
-    // Post user information to data server
-    if (!userExist) {
-      axios.post('http://localhost:3000/user', {
-        name: userName,
-        email: userEmail,
-        password: userPassword,
-        phoneNumb: userPhone,
-      });
+    await sleep(3000);
+    const dataName = response.data.findIndex((data) => data.name === userName);
+    const dataEmail = response.data.findIndex((data) => data.email === userEmail);
+    if (dataName === 0 || dataEmail === 0) {
+      setError('existInfo');
+    } else {
+      axios
+        .post('http://localhost:3000/user', {
+          name: userName,
+          email: userEmail,
+          password: userPassword,
+          phoneNumb: userPhone,
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     }
   }
   // Unlock UI
