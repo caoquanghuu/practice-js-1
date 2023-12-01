@@ -1,5 +1,3 @@
-const { getUserInformation } = require('./axios-request');
-
 require('./axios-request')();
 require('./ultis')();
 
@@ -58,16 +56,14 @@ async function login() {
     emptyInput = true;
   }
   if (!emptyInput) {
-    const response = getUserInformation;
+    const response = await getUserInformation;
     await sleep(3000);
-    const dataName = response.data.findIndex((data) => data.name === userAccount);
-    const dataEmail = response.data.findIndex((data) => data.email === userAccount);
-    const dataPassword = response.data.findIndex((data) => data.password === userPassword);
-    if (
-      (dataName !== -1 || dataEmail !== -1) &&
-      dataPassword !== -1 &&
-      (dataName === dataPassword || dataEmail === dataPassword)
-    ) {
+    const userInfoInServer = response.data.some(
+      (data) =>
+        (data.name === userAccount || data.dataEmail === userAccount) &&
+        data.password === userPassword,
+    );
+    if (userInfoInServer) {
       window.location.replace('calculator.html');
     } else {
       setError('wrongUser');
