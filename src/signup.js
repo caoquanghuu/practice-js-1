@@ -1,5 +1,6 @@
 require('./ultis')();
 // Export getUserInformation and function postUserInformation.
+require('./axios-request');
 require('./axios-request')();
 
 const btnSignUP = document.getElementById('btn-sign-up');
@@ -70,7 +71,6 @@ async function signUp() {
   // Check user information exist on data server exist or not
   if (!emptyInput) {
     const response = await getUserInformation;
-    console.log(response);
     await sleep(3000);
     const dataName = response.data.findIndex((data) => data.name === userName);
     const dataEmail = response.data.findIndex((data) => data.email === userEmail);
