@@ -1,6 +1,6 @@
 const axios = require('axios').default;
 
-module.exports = () => {
+module.exports = function () {
   this.getUserInformation = axios.get('http://localhost:3000/user').catch((error) => {
     if (error.response) {
       console.log(error.response.data);
@@ -13,7 +13,7 @@ module.exports = () => {
     }
     console.log(error.config);
   });
-  this.postUserInformation = (userName, userEmail, userPassword, userPhone) => {
+  this.postUserInformation = function (userName, userEmail, userPassword, userPhone) {
     axios
       .post('http://localhost:3000/user', {
         name: userName,
