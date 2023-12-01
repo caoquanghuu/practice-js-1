@@ -1,5 +1,6 @@
-const axios = require('axios').default;
 require('./ultis')();
+// Export getUserInformation and function postUserInformation.
+require('./axios-request')();
 
 const btnSignUP = document.getElementById('btn-sign-up');
 const inputName = document.getElementById('input-name');
@@ -68,34 +69,15 @@ async function signUp() {
   }
   // Check user information exist on data server exist or not
   if (!emptyInput) {
-    const response = await axios.get('http://localhost:3000/user').catch((error) => {
-      console.log(error);
-    });
+    const response = await getUserInformation;
+    console.log(response);
     await sleep(3000);
     const dataName = response.data.findIndex((data) => data.name === userName);
     const dataEmail = response.data.findIndex((data) => data.email === userEmail);
-    if (dataName === 0 || dataEmail === 0) {
+    if (dataName !== -1 || dataEmail !== -1) {
       setError('existInfo');
     } else {
-      axios
-        .post('http://localhost:3000/user', {
-          name: userName,
-          email: userEmail,
-          password: userPassword,
-          phoneNumb: userPhone,
-        })
-        .catch((error) => {
-          if (error.response) {
-            console.log(error.response.data);
-            console.log(error.response.status);
-            console.log(error.response.headers);
-          } else if (error.request) {
-            console.log(error.request);
-          } else {
-            console.log('Error', error.message);
-          }
-          console.log(error.config);
-        });
+      await postUserInformation(userName, userEmail, userPassword, userPhone);
     }
   }
   // Unlock UI

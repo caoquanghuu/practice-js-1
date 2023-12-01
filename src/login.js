@@ -1,4 +1,6 @@
-const axios = require('axios').default;
+const { getUserInformation } = require('./axios-request');
+
+require('./axios-request')();
 require('./ultis')();
 
 // query element //
@@ -56,9 +58,7 @@ async function login() {
     emptyInput = true;
   }
   if (!emptyInput) {
-    const response = await axios.get('http://localhost:3000/user').catch((error) => {
-      console.log(error);
-    });
+    const response = getUserInformation;
     await sleep(3000);
     const dataName = response.data.findIndex((data) => data.name === userAccount);
     const dataEmail = response.data.findIndex((data) => data.email === userAccount);
