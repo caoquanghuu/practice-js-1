@@ -12,6 +12,7 @@
     "operator-linebreak": "off",
     "no-undef": "off",
     "no-console": "off",
-    "implicit-arrow-linebreak": "off"
+    "implicit-arrow-linebreak": "off",
+    "allowForLoopAfterthoughts": true
   }
 }
