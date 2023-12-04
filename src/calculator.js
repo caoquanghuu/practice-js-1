@@ -1,76 +1,74 @@
-const displayField = document.getElementById("result");
-const btnDot = document.getElementById("btn-dot");
-const btnClear = document.getElementById("btn-clear");
-const btnMulti = document.getElementById("btn-multi");
-const btnSub = document.getElementById("btn-sub");
-const btnPlus = document.getElementById("btn-plus");
-const btnDiv = document.getElementById("btn-div");
-const btnEqual = document.getElementById("btn-equal");
-const btn = [...Array(10).keys()].map((i) =>
-  document.getElementById(`btn-calc-${i}`)
-);
+const spaceDisplay = document.getElementById('result');
+const btnDot = document.getElementById('btn-dot');
+const btnClear = document.getElementById('btn-clear');
+const btnMulti = document.getElementById('btn-multi');
+const btnSub = document.getElementById('btn-sub');
+const btnPlus = document.getElementById('btn-plus');
+const btnDiv = document.getElementById('btn-div');
+const btnEqual = document.getElementById('btn-equal');
+const btn = [...Array(10).keys()].map((i) => document.getElementById(`btn-calc-${i}`));
+const [multi, div, plus, sub] = ['*', '/', '+', '-'];
 
 function getInput(a) {
-  displayField.value += a;
+  spaceDisplay.value += a;
 }
 
 // create dot and check dot already exist or not
 function createDot() {
-  const ar = displayField.value.split("");
-  const a = ".";
+  const ar = spaceDisplay.value.split('');
+  const a = '.';
   const dotInDisplayField = ar.some((dot) => dot === a);
   if (!dotInDisplayField && !!ar[0]) {
-    displayField.value += a;
+    spaceDisplay.value += a;
   }
 }
 
 // function to clear input
 function clearInput() {
-  const ce = document.getElementById("result");
-  ce.value = "";
+  spaceDisplay.value = '';
 }
 
-async function calculate(calcType) {
-  const valueIn1 = parseFloat(displayField.value);
-  displayField.value = "";
-  await function calculateType() {};
-}
-
-// function to calculate
-function displayOutput() {
-  const valueIn2 = parseFloat(displayField.value);
-  displayField.value = "";
+function displayOutput(calcType, valueIn1) {
+  const valueIn2 = parseFloat(spaceDisplay.value);
+  console.log('value 2 ', valueIn2);
+  spaceDisplay.value = '';
   let result;
-  switch (cal) {
-    case "*":
+  switch (calcType) {
+    case multi:
       result = valueIn1 * valueIn2;
       break;
-    case "-":
+    case sub:
       result = valueIn1 - valueIn2;
       break;
-    case "+":
+    case plus:
       result = valueIn1 + valueIn2;
       break;
-    case "/":
+    case div:
       result = valueIn1 / valueIn2;
       break;
     default:
   }
-  displayField.value = result;
-  result = "";
+  spaceDisplay.value = result;
+  console.log('result ', result);
+  result = '';
 }
 
-// get calculation and return result
+function calculate(calcType) {
+  const valueIn1 = parseFloat(spaceDisplay.value);
+  console.log('value 1 ', valueIn1);
+  spaceDisplay.value = '';
+  btnEqual.addEventListener('click', () => displayOutput(calcType, valueIn1));
+}
 
-btnMulti.addEventListener("click", () => calculate("*"));
-btnSub.addEventListener("click", () => calculate("-"));
-btnPlus.addEventListener("click", () => calculate("+"));
-btnDiv.addEventListener("click", () => calculate("/"));
-btnClear.addEventListener("click", clearInput);
+btnMulti.addEventListener('click', () => calculate(multi));
+btnSub.addEventListener('click', () => calculate(sub));
+btnPlus.addEventListener('click', () => calculate(plus));
+btnDiv.addEventListener('click', () => calculate(div));
+btnClear.addEventListener('click', clearInput);
 for (let i = 0; i < 10; i++) {
-  btn[i].addEventListener("click", () => getInput(i));
+  btn[i].addEventListener('click', () => getInput(i));
 }
-btnDot.addEventListener("click", createDot);
+btnDot.addEventListener('click', createDot);
 
 if (module.hot) {
   module.hot.accept();
