@@ -13,6 +13,8 @@
     "no-undef": "off",
     "no-console": "off",
     "implicit-arrow-linebreak": "off",
-    "allowForLoopAfterthoughts": true
+    "allowForLoopAfterthoughts": "off",
+    "global-require": "off",
+    "no-plusplus": "off"
   }
 }
