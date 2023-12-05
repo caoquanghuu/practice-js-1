@@ -10,39 +10,10 @@ const [spaceDisplay, btnDot, btnClear, btnMulti, btnSub, btnPlus, btnDiv, btnEqu
   document.getElementById('btn-div'),
   document.getElementById('btn-equal'),
 ];
-// const firstVal = null;
-// const secondVal = null;
-
 function getInput(a) {
   spaceDisplay.value += a;
 }
 
-// function calculation(calcType) {
-//   firstVal = parseFloat(spaceDisplay.value);
-//   spaceDisplay.value = '';
-//   console.log('firstVal', firstVal);
-//   if (secondVal) {
-//     switch (calcType) {
-//       case multi:
-//         result = firstVal * secondVal;
-//         break;
-//       case sub:
-//         result = firstVal - secondVal;
-//         break;
-//       case plus:
-//         result = firstVal + secondVal;
-//         break;
-//       case div:
-//         result = firstVal / secondVal;
-//         break;
-//       default:
-//     }
-//     spaceDisplay.value = result;
-//     firstVal = result;
-//   }
-//   secondVal = parseFloat(spaceDisplay);
-//   console.log('secondVal', secondVal);
-// }
 // create dot and check dot already exist or not
 function createDot() {
   const ar = spaceDisplay.value.split('');
@@ -58,45 +29,22 @@ function clearInput() {
   spaceDisplay.value = '';
 }
 
-function displayOutput(calcType, valueIn1) {
-  const valueIn2 = parseFloat(spaceDisplay.value);
-  console.log('valueIn2: ', valueIn2);
-  let result = '';
-  switch (calcType) {
-    case multi:
-      result = valueIn1 * valueIn2;
-      break;
-    case sub:
-      result = valueIn1 - valueIn2;
-      break;
-    case plus:
-      result = valueIn1 + valueIn2;
-      break;
-    case div:
-      result = valueIn1 / valueIn2;
-      break;
-    default:
-  }
-  spaceDisplay.value = result;
-  console.log(result);
+function showResult() {
+  const x = spaceDisplay.value;
+  const y = eval(x);
+  spaceDisplay.value = y;
 }
 
-function calculate(calcType) {
-  const valueIn1 = parseFloat(spaceDisplay.value);
-  console.log('valueIn1: ', valueIn1);
-  spaceDisplay.value = '';
-  btnEqual.onclick = () => displayOutput(calcType, valueIn1);
-}
-
-btnMulti.addEventListener('click', () => calculate(multi));
-btnSub.addEventListener('click', () => calculate(sub));
-btnPlus.addEventListener('click', () => calculate(plus));
-btnDiv.addEventListener('click', () => calculate(div));
+btnMulti.addEventListener('click', () => getInput(multi));
+btnSub.addEventListener('click', () => getInput(sub));
+btnPlus.addEventListener('click', () => getInput(plus));
+btnDiv.addEventListener('click', () => getInput(div));
 btnClear.addEventListener('click', clearInput);
 for (let i = 0; i < 10; i++) {
   btn[i].addEventListener('click', () => getInput(i));
 }
 btnDot.addEventListener('click', createDot);
+btnEqual.addEventListener('click', showResult);
 
 if (module.hot) {
   module.hot.accept();

@@ -15,6 +15,7 @@
     "implicit-arrow-linebreak": "off",
     "allowForLoopAfterthoughts": "off",
     "global-require": "off",
-    "no-plusplus": "off"
+    "no-plusplus": "off",
+    "no-eval": "off"
   }
 }
