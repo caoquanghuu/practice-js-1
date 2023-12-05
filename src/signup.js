@@ -75,13 +75,12 @@ window.addEventListener('load', () => {
       await sleep(3000);
       const dataName = response.data.findIndex((data) => data.name === userName);
       const dataEmail = response.data.findIndex((data) => data.email === userEmail);
-      if (dataName !== -1 || dataEmail !== -1) {
-        displayError(errorExistInfo);
-      } else {
+      if (dataName === -1 || dataEmail === -1) {
         await postUserInformation(userName, userEmail, userPassword, userPhone);
       }
     }
     if (inputEmpty) displayError(errorEmptyInput);
+    else if (dataName !== -1 || dataEmail !== -1) displayError(errorExistInfo);
     // Unlock UI
     lockUI(false);
   }

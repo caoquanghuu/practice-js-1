@@ -27,7 +27,7 @@ window.addEventListener('load', () => {
     }
   }
 
-  function setError(typeError) {
+  function displayError(typeError) {
     switch (typeError) {
       case errorEmptyInput:
         existErrorText.innerHTML = errorEmptyInput;
@@ -66,11 +66,10 @@ window.addEventListener('load', () => {
       );
       if (userInfoInServer) {
         window.location.replace('calculator.html');
-      } else {
-        setError(errorWrongUser);
       }
     }
-    if (inputEmpty) setError(errorEmptyInput);
+    if (inputEmpty) displayError(errorEmptyInput);
+    else if (!userInfoInServer) displayError(errorWrongUser);
 
     lockUI(false);
   }
@@ -79,10 +78,10 @@ window.addEventListener('load', () => {
   btnLogin.addEventListener('mouseup', login);
   btnShowPassword.addEventListener('mouseup', togglePassword);
   inputUser.addEventListener('mouseup', () => {
-    setError(clearError);
+    displayError(clearError);
   });
   inputPassword.addEventListener('mouseup', () => {
-    setError(clearError);
+    displayError(clearError);
   });
 
   if (module.hot) {
