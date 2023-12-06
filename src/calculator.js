@@ -10,6 +10,11 @@ const [spaceDisplay, btnDot, btnClear, btnMulti, btnSub, btnPlus, btnDiv, btnEqu
   document.getElementById('btn-div'),
   document.getElementById('btn-equal'),
 ];
+let valueIn1 = null;
+let valueIn2 = null;
+let preType = null;
+let result = null;
+
 function getInput(a) {
   spaceDisplay.value += a;
 }
@@ -27,24 +32,65 @@ function createDot() {
 // function to clear input
 function clearInput() {
   spaceDisplay.value = '';
+  valueIn1 = '';
+  valueIn2 = '';
+  preType = '';
 }
 
-function showResult() {
-  const x = spaceDisplay.value;
-  const y = eval(x);
-  spaceDisplay.value = y;
+function calculate() {
+  switch (preType) {
+    case multi:
+      result = valueIn1 * valueIn2;
+      break;
+    case sub:
+      result = valueIn1 - valueIn2;
+      break;
+    case plus:
+      result = valueIn1 + valueIn2;
+      break;
+    case div:
+      result = valueIn1 / valueIn2;
+      break;
+    default:
+  }
 }
 
-btnMulti.addEventListener('click', () => getInput(multi));
-btnSub.addEventListener('click', () => getInput(sub));
-btnPlus.addEventListener('click', () => getInput(plus));
-btnDiv.addEventListener('click', () => getInput(div));
+function handleClick(calcType) {
+  if (!valueIn1) {
+    valueIn1 = parseFloat(spaceDisplay.value);
+    spaceDisplay.value = '';
+  } else {
+    valueIn2 = parseFloat(spaceDisplay.value);
+    spaceDisplay.value = '';
+  }
+  if (valueIn1 && valueIn2 && preType) {
+    calculate();
+    spaceDisplay.value = result;
+    valueIn1 = result;
+  }
+  preType = calcType;
+  spaceDisplay.value = '';
+}
+
+function showFinalResult() {
+  valueIn2 = parseFloat(spaceDisplay.value);
+  calculate();
+  spaceDisplay.value = result;
+  valueIn1 = result;
+  valueIn2 = null;
+  preType = null;
+}
+
+btnMulti.addEventListener('click', () => handleClick(multi));
+btnSub.addEventListener('click', () => handleClick(sub));
+btnPlus.addEventListener('click', () => handleClick(plus));
+btnDiv.addEventListener('click', () => handleClick(div));
 btnClear.addEventListener('click', clearInput);
 for (let i = 0; i < 10; i++) {
   btn[i].addEventListener('click', () => getInput(i));
 }
 btnDot.addEventListener('click', createDot);
-btnEqual.addEventListener('click', showResult);
+btnEqual.addEventListener('click', showFinalResult);
 
 if (module.hot) {
   module.hot.accept();
