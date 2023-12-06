@@ -65,7 +65,7 @@ window.addEventListener('load', () => {
           data.password === userPassword,
       );
       if (userInfoInServer) {
-        window.location.replace('calculator.html');
+        window.location.replace('index.html');
       }
     }
     if (inputEmpty) displayError(errorEmptyInput);
