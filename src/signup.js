@@ -12,10 +12,12 @@ window.addEventListener('load', () => {
   const iconLoadingBtn = document.getElementById('icon-loading-btn');
   const btnShowPassword = document.getElementById('btn-show-password');
   const spaceDisplayError = document.getElementById('space-display-error');
-  const [errorEmptyInput, errorExistInfo, clearError] = [
+  const spaceDisplaySignUpSuccess = document.getElementById('space-sign-up-success');
+  const [errorEmptyInput, errorExistInfo, clearError, signUPSuccess] = [
     'Please insert all information!!!',
     'user / email already exist!!!',
     '',
+    'sign up success, let go to login',
   ];
 
   // Disable/Enable input field.
@@ -38,7 +40,7 @@ window.addEventListener('load', () => {
     inputPassword.setAttribute('type', type);
   }
 
-  function displayError(typeError) {
+  function displaySignUpResult(typeError) {
     switch (typeError) {
       case errorEmptyInput:
         spaceDisplayError.innerHTML = errorEmptyInput;
@@ -48,6 +50,9 @@ window.addEventListener('load', () => {
         break;
       case clearError:
         spaceDisplayError.innerHTML = clearError;
+        break;
+      case signUPSuccess:
+        spaceDisplaySignUpSuccess.innerHTML = signUPSuccess;
         break;
       default:
     }
@@ -60,27 +65,38 @@ window.addEventListener('load', () => {
     const userEmail = inputEmail.value;
     const userPhone = inputPhone.value;
     const userPassword = inputPassword.value;
-    // variables for check as boolean
-    let inputEmpty = false;
+    let spaceDisplayController = null;
 
     // Lock UI
     lockUI(true);
     // Check all input field has been assigned or not
     if (!userName || !userEmail || !userPhone || !userPassword) {
-      inputEmpty = true;
-    }
-    // Check user information exist on data server exist or not
-    if (!inputEmpty) {
-      const response = await getUserInformation;
+      spaceDisplayController = errorEmptyInput;
+    } else {
+      const response = await getUserInformation();
       await sleep(3000);
       const dataName = response.data.findIndex((data) => data.name === userName);
       const dataEmail = response.data.findIndex((data) => data.email === userEmail);
-      if (dataName === -1 || dataEmail === -1) {
+      if (dataName === -1 && dataEmail === -1) {
         await postUserInformation(userName, userEmail, userPassword, userPhone);
+        spaceDisplayController = signUPSuccess;
+      } else {
+        spaceDisplayController = errorExistInfo;
       }
     }
-    if (inputEmpty) displayError(errorEmptyInput);
-    else if (dataName !== -1 || dataEmail !== -1) displayError(errorExistInfo);
+    // display error if have.
+    switch (spaceDisplayController) {
+      case errorEmptyInput:
+        displaySignUpResult(errorEmptyInput);
+        break;
+      case errorExistInfo:
+        displaySignUpResult(errorExistInfo);
+        break;
+      case signUPSuccess:
+        displaySignUpResult(signUPSuccess);
+        break;
+      default:
+    }
     // Unlock UI
     lockUI(false);
   }
@@ -88,10 +104,10 @@ window.addEventListener('load', () => {
   // Export function with events.
   btnSignUP.addEventListener('mouseup', signUp);
   inputName.addEventListener('mouseup', () => {
-    displayError(clearError);
+    displaySignUpResult(clearError);
   });
   inputEmail.addEventListener('mouseup', () => {
-    displayError(clearError);
+    displaySignUpResult(clearError);
   });
   btnShowPassword.addEventListener('mouseup', togglePassword);
 
