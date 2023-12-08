@@ -8,7 +8,7 @@ window.addEventListener('load', () => {
   const iconLoadingBtn = document.getElementById('icon-loading-btn');
   const inputUser = document.getElementById('input-name');
   const inputPassword = document.getElementById('input-password');
-  const spaceDisplayError = document.getElementById('space-display-error');
+  const spaceDisplayError = document.getElementById('space-display-error2');
   const [errorEmptyInput, errorWrongUser, clearError] = [
     'Please insert your User name / Email and password',
     'Wrong use name / password',
@@ -50,13 +50,13 @@ window.addEventListener('load', () => {
   async function login() {
     const userAccount = inputUser.value;
     const userPassword = inputPassword.value;
-    let inputEmpty = false;
+    let errorController = null;
 
     lockUI(true);
     if (!userAccount || !userPassword) {
-      inputEmpty = true;
+      errorController = errorEmptyInput;
     } else {
-      const response = await getUserInformation;
+      const response = await getUserInformation();
       await sleep(3000);
       const userInfoInServer = response.data.some(
         (data) =>
@@ -65,13 +65,16 @@ window.addEventListener('load', () => {
       );
       if (userInfoInServer) {
         window.location.replace('index.html');
-        localStorage.setItem('userLoggedIn', 'yes');
+        localStorage.setItem('user-name', JSON.stringify(userAccount));
+        localStorage.setItem('login-time', JSON.stringify(new Date()));
+      } else {
+        errorController = errorEmptyInput;
       }
-      if (inputEmpty) displayError(errorEmptyInput);
-      else if (!userInfoInServer) displayError(errorWrongUser);
-
-      lockUI(false);
     }
+    // Display error if have
+    if (errorController === errorEmptyInput) displayError(errorEmptyInput);
+    else if (errorController === errorWrongUser) displayError(errorWrongUser);
+    lockUI(false);
   }
 
   // button event
