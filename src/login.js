@@ -8,7 +8,7 @@ window.addEventListener('load', () => {
   const iconLoadingBtn = document.getElementById('icon-loading-btn');
   const inputUser = document.getElementById('input-name');
   const inputPassword = document.getElementById('input-password');
-  const existErrorText = document.getElementById('exist-error-text');
+  const spaceDisplayError = document.getElementById('space-display-error');
   const [errorEmptyInput, errorWrongUser, clearError] = [
     'Please insert your User name / Email and password',
     'Wrong use name / password',
@@ -30,13 +30,13 @@ window.addEventListener('load', () => {
   function displayError(typeError) {
     switch (typeError) {
       case errorEmptyInput:
-        existErrorText.innerHTML = errorEmptyInput;
+        spaceDisplayError.innerHTML = errorEmptyInput;
         break;
       case errorWrongUser:
-        existErrorText.innerHTML = errorWrongUser;
+        spaceDisplayError.innerHTML = errorWrongUser;
         break;
       case clearError:
-        existErrorText.innerHTML = clearError;
+        spaceDisplayError.innerHTML = clearError;
         break;
       default:
     }
@@ -55,8 +55,7 @@ window.addEventListener('load', () => {
     lockUI(true);
     if (!userAccount || !userPassword) {
       inputEmpty = true;
-    }
-    if (!inputEmpty) {
+    } else {
       const response = await getUserInformation;
       await sleep(3000);
       const userInfoInServer = response.data.some(
@@ -66,12 +65,13 @@ window.addEventListener('load', () => {
       );
       if (userInfoInServer) {
         window.location.replace('index.html');
+        localStorage.setItem('userLoggedIn', 'yes');
       }
-    }
-    if (inputEmpty) displayError(errorEmptyInput);
-    else if (!userInfoInServer) displayError(errorWrongUser);
+      if (inputEmpty) displayError(errorEmptyInput);
+      else if (!userInfoInServer) displayError(errorWrongUser);
 
-    lockUI(false);
+      lockUI(false);
+    }
   }
 
   // button event
