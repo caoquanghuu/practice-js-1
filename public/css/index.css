@@ -125,12 +125,24 @@ footer {
     text-align: left;
 }
 
-#space-display-error {
+#space-display-error,
+#space-sign-up-success,
+#space-display-error2 {
     font-size: 11px;
     color: red;
     position: absolute;
     top: 120px;
     left: 25px;
+}
+
+#space-display-error2 {
+    position: absolute;
+    top: 150px;
+    left: 25px;
+}
+
+#space-sign-up-success {
+    color: green;
 }
 
 .fa {
