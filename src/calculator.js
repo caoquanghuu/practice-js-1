@@ -22,11 +22,11 @@ window.addEventListener('load', () => {
   }
 
   function checkLoggedIn() {
-    const userLoggedIn = localStorage.getItem('userLoggedIn');
-    if (!userLoggedIn) {
+    const userName = localStorage.getItem('user-name');
+    if (!userName) {
       window.location.replace('login.html');
     }
-    setTimeout(cache, 10000);
+    setTimeout(cache, 20000);
   }
 
   checkLoggedIn();
