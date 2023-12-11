@@ -16,6 +16,7 @@
     "allowForLoopAfterthoughts": "off",
     "global-require": "off",
     "no-plusplus": "off",
-    "no-eval": "off"
+    "no-eval": "off",
+    "no-useless-escape": "off"
   }
 }
