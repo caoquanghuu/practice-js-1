@@ -44,6 +44,13 @@
       "password": "ngogiangmi",
       "phoneNumb": "48945615",
       "id": 4
+    },
+    {
+      "name": "caoquanghuu3",
+      "email": "caoquanghu3u@gmail.com",
+      "password": "Huu123456!",
+      "phoneNumb": "1234567897",
+      "id": 5
     }
   ]
 }
