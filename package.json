@@ -2,7 +2,7 @@
   "source": {
     "login": "public/login.html",
     "signup": "public/signup.html",
-    "calculator": "public/calculator.html"
+    "calculator": "public/index.html"
   },
   "devDependencies": {
     "@commitlint/cli": "^18.4.3",
