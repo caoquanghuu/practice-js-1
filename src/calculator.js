@@ -26,7 +26,7 @@ window.addEventListener('load', () => {
     if (!userName) {
       window.location.replace('login.html');
     }
-    setTimeout(cache, 20000);
+    setTimeout(cache, 30000);
   }
 
   checkLoggedIn();

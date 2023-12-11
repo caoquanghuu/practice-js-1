@@ -13,11 +13,22 @@ window.addEventListener('load', () => {
   const btnShowPassword = document.getElementById('btn-show-password');
   const spaceDisplayError = document.getElementById('space-display-error');
   const spaceDisplaySignUpSuccess = document.getElementById('space-sign-up-success');
-  const [errorEmptyInput, errorExistInfo, clearError, signUPSuccess] = [
+  const [
+    errorEmptyInput,
+    errorExistInfo,
+    clearError,
+    signUPSuccess,
+    inputEmailError,
+    inputPhoneError,
+    inputPasswordError,
+  ] = [
     'Please insert all information!!!',
     'user / email already exist!!!',
     '',
     'sign up success, let go to login',
+    'please insert valid email',
+    'please insert valid Phone Number',
+    'password must have 8-15 length, no space, have number, special characters, capital letters and small letters',
   ];
 
   // Disable/Enable input field.
@@ -51,6 +62,15 @@ window.addEventListener('load', () => {
       case clearError:
         spaceDisplayError.innerHTML = clearError;
         break;
+      case inputEmailError:
+        spaceDisplayError.innerHTML = inputEmailError;
+        break;
+      case inputPhoneError:
+        spaceDisplayError.innerHTML = inputPhoneError;
+        break;
+      case inputPasswordError:
+        spaceDisplayError.innerHTML = inputPasswordError;
+        break;
       case signUPSuccess:
         spaceDisplaySignUpSuccess.innerHTML = signUPSuccess;
         break;
@@ -72,6 +92,12 @@ window.addEventListener('load', () => {
     // Check all input field has been assigned or not
     if (!userName || !userEmail || !userPhone || !userPassword) {
       spaceDisplayController = errorEmptyInput;
+    } else if (!isValidEmail(inputEmail.value)) {
+      spaceDisplayController = inputEmailError;
+    } else if (!isValidPhoneNumber(inputPhone.value)) {
+      spaceDisplayController = inputPhoneError;
+    } else if (!isValidPassword(inputPassword.value)) {
+      spaceDisplayController = inputPasswordError;
     } else {
       const response = await getUserInformation();
       await sleep(3000);
@@ -94,6 +120,15 @@ window.addEventListener('load', () => {
         break;
       case signUPSuccess:
         displaySignUpResult(signUPSuccess);
+        break;
+      case inputEmailError:
+        displaySignUpResult(inputEmailError);
+        break;
+      case inputPhoneError:
+        displaySignUpResult(inputPhoneError);
+        break;
+      case inputPasswordError:
+        displaySignUpResult(inputPasswordError);
         break;
       default:
     }
