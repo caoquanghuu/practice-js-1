@@ -127,7 +127,10 @@ footer {
 
 #space-display-error,
 #space-sign-up-success,
-#space-display-error2 {
+#space-display-error2,
+#space-display-email-error,
+#space-display-phone-number-error,
+#space-display-password-error {
     font-size: 11px;
     color: red;
     position: absolute;
@@ -143,6 +146,24 @@ footer {
 
 #space-sign-up-success {
     color: green;
+}
+
+#space-display-email-error {
+    position: absolute;
+    top: 230px;
+    left: 25px;
+}
+
+#space-display-phone-number-error {
+    position: absolute;
+    top: 330px;
+    left: 25px;
+}
+
+#space-display-password-error {
+    position: absolute;
+    top: 410px;
+    left: 25px;
 }
 
 .fa {

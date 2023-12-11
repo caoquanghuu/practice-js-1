@@ -12,6 +12,9 @@ window.addEventListener('load', () => {
   const iconLoadingBtn = document.getElementById('icon-loading-btn');
   const btnShowPassword = document.getElementById('btn-show-password');
   const spaceDisplayError = document.getElementById('space-display-error');
+  const spaceDisplayEmailError = document.getElementById('space-display-email-error');
+  const spaceDisplayPhoneNumberError = document.getElementById('space-display-phone-number-error');
+  const spaceDisplayPasswordError = document.getElementById('space-display-password-error');
   const spaceDisplaySignUpSuccess = document.getElementById('space-sign-up-success');
   const [
     errorEmptyInput,
@@ -61,15 +64,18 @@ window.addEventListener('load', () => {
         break;
       case clearError:
         spaceDisplayError.innerHTML = clearError;
+        spaceDisplayEmailError.innerHTML = clearError;
+        spaceDisplayPasswordError.innerHTML = clearError;
+        spaceDisplayPhoneNumberError.innerHTML = clearError;
         break;
       case inputEmailError:
-        spaceDisplayError.innerHTML = inputEmailError;
+        spaceDisplayEmailError.innerHTML = inputEmailError;
         break;
       case inputPhoneError:
-        spaceDisplayError.innerHTML = inputPhoneError;
+        spaceDisplayPhoneNumberError.innerHTML = inputPhoneError;
         break;
       case inputPasswordError:
-        spaceDisplayError.innerHTML = inputPasswordError;
+        spaceDisplayPasswordError.innerHTML = inputPasswordError;
         break;
       case signUPSuccess:
         spaceDisplaySignUpSuccess.innerHTML = signUPSuccess;
@@ -110,6 +116,7 @@ window.addEventListener('load', () => {
         spaceDisplayController = errorExistInfo;
       }
     }
+
     // display error if have.
     switch (spaceDisplayController) {
       case errorEmptyInput:
@@ -132,16 +139,23 @@ window.addEventListener('load', () => {
         break;
       default:
     }
+
     // Unlock UI
     lockUI(false);
   }
 
   // Export function with events.
   btnSignUP.addEventListener('mouseup', signUp);
-  inputName.addEventListener('mouseup', () => {
+  inputName.addEventListener('input', () => {
     displaySignUpResult(clearError);
   });
-  inputEmail.addEventListener('mouseup', () => {
+  inputEmail.addEventListener('input', () => {
+    displaySignUpResult(clearError);
+  });
+  inputPhone.addEventListener('input', () => {
+    displaySignUpResult(clearError);
+  });
+  inputPassword.addEventListener('input', () => {
     displaySignUpResult(clearError);
   });
   btnShowPassword.addEventListener('mouseup', togglePassword);
